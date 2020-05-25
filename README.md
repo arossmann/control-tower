@@ -45,13 +45,13 @@ And I'm a nerd, I want to code. :-)
 * to start the NGINX + Let's encrpt, go to __proxy__ directory and
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 * to start NodeRede go to __nodered__ directory and
 
 ```bash
-docker-compose up
+docker-compose up -d
 ```
 
 ## Used Nodes
