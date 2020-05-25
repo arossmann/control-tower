@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  nodered:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=Europe/Berlin
+      - VIRTUAL_HOST=${NODERED_SUBDOMAIN}.${DOMAIN_NAME}
+      - VIRTUAL_PORT=${NODERED_PORT}
+      - LETSENCRYPT_HOST=${NODERED_SUBDOMAIN}.${DOMAIN_NAME}
+      - LETSENCRYPT_EMAIL=${SSL_EMAIL}
+    ports:
+      - "1880:1880"
+    volumes:
+      - ${DATA_FOLDER}:/data/
+    networks:
+      - proxy 
+  mosquitto:
+    image: eclipse-mosquitto:1.6
+    volumes:
+      - ./mosquitto/conf/mosquitto.conf:/mosquitto/config/mosquitto.conf
+        # - /root/mosquitto/data/mosquitto-data:/mosquitto/data
+        # - /root/mosquitto/data/mosquitto-log:/mosquitto/log
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - proxy
+networks:
+  proxy:
+    external:
+      name: nginx-proxy
