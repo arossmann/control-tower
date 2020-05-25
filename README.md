@@ -42,4 +42,25 @@ And I'm a nerd, I want to code. :-)
 
 * create a docker network (in my case __nginx-proxy__)
 * create copies of the TEMPLATE.env files, save them as .env and modify the values.
-* 
+* to start the NGINX + Let's encrpt, go to __proxy__ directory and
+
+```bash
+docker-compose up
+```
+
+* to start NodeRede go to __nodered__ directory and
+
+```bash
+docker-compose up
+```
+
+## Used Nodes
+
+These are the used nodes, apart from the default nodes in NodeRed
+
+* RSS Feeds: [node-red-contrib-multifeed-parser](https://www.npmjs.com/package/node-red-contrib-multifeed-parser)
+* Twitter: [node-red-node-twitter](https://flows.nodered.org/node/node-red-node-twitter)
+* Link to [Remember the Milk](http://rememberthemilk.com/): [node-red-contrib-rtm](https://flows.nodered.org/node/node-red-contrib-rtm)
+* Link to Slack: [node-red-contrib-slack](https://flows.nodered.org/node/node-red-contrib-slack)
+* Geet Weather Info: [node-red-node-openweathermap](https://flows.nodered.org/node/node-red-node-openweathermap)
+* Persist temporary values from Netatmo: [node-red-node-sqlite](https://flows.nodered.org/node/node-red-node-sqlite)
